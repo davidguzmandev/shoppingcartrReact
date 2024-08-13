@@ -11,9 +11,9 @@ export const App = () => {
       <NavBar/>
       <div className="container">
         <Routes>
-          <Route path="/" element={ <Products></Products>}></Route>
-          <Route path="/cart" element={<Cart></Cart>}></Route>
-          <Route path="/*" element={<Navigate to ='/' />}></Route>
+          <Route path="/" element={ <Products></Products> }></Route>
+          <Route path="/cart" element={<Cart></Cart> }></Route>
+          <Route path="/*" element={<Navigate to ='/' /> }></Route>
         </Routes>
       </div>
     </>
