@@ -1,9 +1,19 @@
 import { useState } from "react"
 import '../styles/Card.css'
 
-export const Card = ({image, title, description, price}) => {
+export const Card = ({image, title, description, price, handleAdd, handleRemove}) => {
 
     const [added, setAdded] = useState(false)
+
+    const addProduct = () => {
+      setAdded(true)
+      handleAdd()
+    }
+
+    const removeProduct = () => {
+      handleRemove()
+      setAdded(false)
+    }
 
   return (
     <div className="card">
@@ -15,8 +25,8 @@ export const Card = ({image, title, description, price}) => {
 
             {
                 added ? 
-                <button type="button" className="btn btn-danger"> Remove </button> :
-                <button type="button" className="btn btn-success"> Add </button>
+                <button type="button" className="btn btn-danger" onClick={removeProduct}> Remove </button> :
+                <button type="button" className="btn btn-success" onClick={addProduct}> Add </button>
             }
 
         </div>

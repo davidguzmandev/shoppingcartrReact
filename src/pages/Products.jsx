@@ -1,33 +1,12 @@
-import { useEffect, useState } from "react"
-import Swal from "sweetalert2"
+import { useContext } from "react"
 import { Card } from "../components/Card"
+import { ProductCx } from "../context/ProductCx"
+import { CartCx } from "../context/CartCx"
 
 export const Products = () => {
 
-  const [products, setProducts] = useState([])
-
-  const fetchProducts = async () => {
-
-    try {
-      const response = await fetch('https://fakestoreapi.com/products')
-      const data = await response.json()
-      setProducts(data)
-    } catch (error){
-      Swal.fire(
-        {
-          icon: 'error',
-          title: "Failed to fetch",
-          text: "Error getting products"
-        }
-      )
-      console.log(error);
-    }
-
-  }
-
-  useEffect(() => { 
-    fetchProducts()
-  },[])
+  const {products} = useContext(ProductCx)
+  const { addProduct, removeProduct} = useContext(CartCx)
 
   return (
     <>
@@ -40,6 +19,8 @@ export const Products = () => {
         title = {product.title}
         description = {product.description}
         price = {product.price}
+        handleAdd = {()=> addProduct(product)}
+        handleRemove = {()=> removeProduct(product.id)}
       />
       ))}
     </>

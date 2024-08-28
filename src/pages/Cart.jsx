@@ -1,22 +1,32 @@
+import { useContext } from "react";
+import { CartCx } from "../context/CartCx";
+
 export const Cart = () => {
+
+  const { shoppingList, removeProduct, increment, decrement } = useContext(CartCx)
   return (
     <>
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Opciones</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">Nombre</th>
-            <td>Precio</td>
-            <td>Cantidad</td>
-            <td>Opciones</td>
-          </tr>
+
+          {shoppingList.map(product => (
+            <tr key ={product.id}>
+              <th scope="row">{product.title}</th>
+              <td>{product.price}</td>
+              <td>{product.quantity}</td>
+              <td>
+                <button className="btn btn-danger" onClick={()=> removeProduct(product.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
