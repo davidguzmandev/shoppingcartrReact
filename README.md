@@ -1,3 +1,3 @@
 # React + Vite
 
-Shopping Cart by ReactS
+Shopping Cart with ReactJS 
