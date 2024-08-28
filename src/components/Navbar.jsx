@@ -17,7 +17,7 @@ export const NavBar = () => {
               </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <div className="navbar-nav">
-                <a className="nav-link active" aria-current="page" href="/">Products</a>
+                <NavLink to='/' className="nav-link" aria-current="page" href="/">Products</NavLink>
               </div>
             </div>
             <NavLink to='/cart'>

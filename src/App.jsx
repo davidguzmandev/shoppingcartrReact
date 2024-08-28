@@ -11,14 +11,14 @@ export const App = () => {
   return (
     <ProductProvider>
       <CartProvider>
-      <NavBar/>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={ <Products></Products> }></Route>
-          <Route path="/cart" element={<Cart></Cart> }></Route>
-          <Route path="/*" element={<Navigate to ='/' /> }></Route>
-        </Routes>
-      </div>
+        <NavBar/>
+          <div className="container">
+            <Routes>
+              <Route path="/" element={ <Products />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
+              <Route path="/*" element={<Navigate to ='/' /> }></Route>
+            </Routes>
+          </div>
       </CartProvider>
     </ProductProvider>
   )

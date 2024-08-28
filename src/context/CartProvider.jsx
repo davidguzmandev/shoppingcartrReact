@@ -12,9 +12,19 @@ export const CartProvider = ({children}) => {
       case '[CART] Remove Product':
         return state.filter(product => product.id !== action.payload)
       case '[CART] Increment':
-        break;
+        return state.map(product => {
+          const qty = product.quantity + 1
+          if(product.id === action.payload) 
+            return {...product, quantity: qty}
+          return product
+        })
       case '[CART] Decrement':
-        break;
+        return state.map(product => {
+        const qty = product.quantity - 1
+          if(product.id === action.payload && product.quantity > 1) 
+            return {...product, quantity: qty}
+          return product
+        })
       default:
         return state
     }
